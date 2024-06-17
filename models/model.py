@@ -86,7 +86,7 @@ class CIGformer(BaseModel):
         pan_substitute = pan + ms_to_pan - pan_down_up
         ms_substitute = ms_up - ms_to_pan
 
-        combined_figure = torch.concat((pan, ms_up), dim=1)
+        combined_figure = torch.concat((pan_substitute, ms_substitute), dim=1)
         combined_feature = self.SubstituteModule(combined_figure)  # 16
 
         inter_feature = combined_feature    # 16
